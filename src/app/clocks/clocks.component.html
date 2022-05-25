@@ -1,20 +1,20 @@
-<div class="container">
+<div class="d-flex justify-content-center">
   <div *ngFor="let location of locations">
     <button
       [class.selected]="location === selectedLocation"
       type="button"
       (click)="onSelect(location)"
-      class="btn btn-info"
+      class="btn btn-primary"
     >
-      <span class="continent">{{ location.continent }}</span>
-      <span class="city">{{ location.city }}</span>
+      <span>{{ location.continent }}/</span>
+      <span>{{ location.city }}</span>
     </button>
   </div>
 </div>
 <div *ngIf="selectedLocation">
-  <h2>
-    {{ selectedLocation.continent | uppercase }}
+  <h2 class="d-flex justify-content-center">
+    {{ selectedLocation.continent | uppercase }}/
     {{ selectedLocation.city | uppercase }}
   </h2>
-  <div>{{ datetime }}</div>
+  <div class="d-flex justify-content-center">{{ datetime }}</div>
 </div>
