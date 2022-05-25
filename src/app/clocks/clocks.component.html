@@ -1,15 +1,16 @@
-<ul class="location">
-  <li *ngFor="let location of locations">
+<div class="container">
+  <div *ngFor="let location of locations">
     <button
       [class.selected]="location === selectedLocation"
       type="button"
       (click)="onSelect(location)"
+      class="btn btn-info"
     >
       <span class="continent">{{ location.continent }}</span>
       <span class="city">{{ location.city }}</span>
     </button>
-  </li>
-</ul>
+  </div>
+</div>
 <div *ngIf="selectedLocation">
   <h2>
     {{ selectedLocation.continent | uppercase }}
