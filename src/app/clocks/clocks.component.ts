@@ -16,7 +16,7 @@ export class ClocksComponent implements OnInit {
   public intervalDate: any;
 
   constructor(private http: HttpService) {
-    this.http.getData().subscribe((data) => {
+    this.http.getData(this.locations[0].url).subscribe((data) => {
       this.data = data;
       this.datetime = this.data['datetime'].substring(11, 19);
       //this.intervalDate = setInterval(this.data, 1000);
@@ -24,13 +24,23 @@ export class ClocksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*setInterval(() => {
-      const date = this.datetime;
-      this.updateDate(date);
-    }, 1000);*/
+    setInterval(() => {
+      this.http
+        .getData(this.selectedLocation?.url ?? this.locations[0].url)
+        .subscribe((data) => {
+          this.data = data;
+          this.datetime = this.data['datetime'].substring(11, 19);
+          //this.intervalDate = setInterval(this.data, 1000);
+        });
+    }, 1000);
   }
 
   onSelect(location: Location): void {
     this.selectedLocation = location;
+    this.http.getData(location.url).subscribe((data) => {
+      this.data = data;
+      this.datetime = this.data['datetime'].substring(11, 19);
+      //this.intervalDate = setInterval(this.data, 1000);
+    });
   }
 }

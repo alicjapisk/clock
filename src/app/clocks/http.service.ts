@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Location } from './location';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +7,7 @@ import { Location } from './location';
 export class HttpService {
   constructor(private http: HttpClient) {}
 
-  getData() {
-    let url = 'http://worldtimeapi.org/api/timezone/Europe/Warsaw'; //location['url'];
+  getData(url: string) {
     return this.http.get(url);
   }
 }
