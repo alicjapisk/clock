@@ -19,7 +19,6 @@ export class ClocksComponent implements OnInit {
     this.http.getData(this.locations[0].url).subscribe((data) => {
       this.data = data;
       this.datetime = this.data['datetime'].substring(11, 19);
-      //this.intervalDate = setInterval(this.data, 1000);
     });
   }
 
@@ -30,7 +29,6 @@ export class ClocksComponent implements OnInit {
         .subscribe((data) => {
           this.data = data;
           this.datetime = this.data['datetime'].substring(11, 19);
-          //this.intervalDate = setInterval(this.data, 1000);
         });
     }, 1000);
   }
@@ -40,7 +38,6 @@ export class ClocksComponent implements OnInit {
     this.http.getData(location.url).subscribe((data) => {
       this.data = data;
       this.datetime = this.data['datetime'].substring(11, 19);
-      //this.intervalDate = setInterval(this.data, 1000);
     });
   }
 }

@@ -4,17 +4,20 @@
       [class.selected]="location === selectedLocation"
       type="button"
       (click)="onSelect(location)"
-      class="btn btn-primary"
+      class="btn btn-primary mx-2"
     >
-      <span>{{ location.continent }}/</span>
+      <span>{{ location.continent }} / </span>
       <span>{{ location.city }}</span>
     </button>
   </div>
 </div>
-<div *ngIf="selectedLocation">
-  <h2 class="d-flex justify-content-center">
-    {{ selectedLocation.continent | uppercase }}/
+<div
+  *ngIf="selectedLocation"
+  class="d-flex justify-content-center flex-column align-items-center mt-4"
+>
+  <h2>
+    {{ selectedLocation.continent | uppercase }} /
     {{ selectedLocation.city | uppercase }}
   </h2>
-  <div class="d-flex justify-content-center">{{ datetime }}</div>
+  <div class="fs-2">{{ datetime }}</div>
 </div>
